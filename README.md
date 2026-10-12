@@ -49,13 +49,13 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 
 **Grill Lite**
 
-> ❓ **1/5: What should the first version solve?**
+> 🍢 **1/5: What should the first version solve?**
 >
 > - **A. Choosing the next task (Recommended)**
 > - B. Missing tasks
 > - C. Reviewing progress
 >
-> 💡 A gives the first version one clear job.
+> 🔥 A gives the first version one clear job.
 >
 > Reply with a letter, or share your own idea.
 
@@ -83,7 +83,7 @@ Your answer introduces a direction outside the listed options. The agent follows
 | **2–3 options, one recommended** | Short choices, with the recommended option clearly marked first. |
 | **Your own ideas welcome** | Every question invites free text. Combine, change, or go beyond the options. |
 | **Up to 5 per review** | One budget across the whole conversation, including follow-ups. |
-| **Fixed ❓ / 💡 format** | A short question and a brief reason you can scan immediately. |
+| **Fixed 🍢 / 🔥 format** | A short question and a brief reason you can scan immediately. |
 | **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
 | **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
 
