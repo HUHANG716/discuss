@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme-hero.svg" alt="Grill Lite — Ask what matters. Then move. One or two questions per turn, up to five overall, and an early finish when the decision is clear." width="100%">
+  <img src="assets/readme-hero.svg" alt="Grill Lite — Ask what matters. Then move. One short question at a time, with options and a recommendation. Up to five overall, with an early finish when the decision is clear." width="100%">
 </p>
 
 <p align="center">
@@ -47,11 +47,15 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 
 > I want to rebuild my personal task tracker as a web app. Use grill-lite.
 
-**Grill Lite · Question 1 of 5**
+**Grill Lite**
 
-> Which problem makes the rebuild worthwhile: missed tasks, choosing what to do next, or reviewing progress?
+> ❓ **1/5: What should the first version solve?**
 >
-> I'd start with choosing what to do next. It gives the first version one clear job.
+> - **A. Choosing the next task (Recommended)**
+> - B. Missing tasks
+> - C. Reviewing progress
+>
+> 💡 A gives the first version one clear job.
 
 **You**
 
@@ -73,19 +77,20 @@ The review ends after one question because there is enough to recommend a direct
 
 | Rule | What it means for you |
 | --- | --- |
-| **1–2 questions per turn** | A small set of choices you can actually answer. |
+| **One question at a time** | Answer one decision, then get the next question if needed. |
+| **2–3 options, one recommended** | Short choices, with the recommended option clearly marked first. |
 | **Up to 5 per review** | One budget across the whole conversation, including follow-ups. |
-| **A recommendation with each question** | Something concrete to react to, with a brief reason. |
+| **Fixed ❓ / 💡 format** | A short question and a brief reason you can scan immediately. |
 | **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
 | **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
 
-Grill Lite focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Separate decisions count separately, even when packed into one sentence.
+Grill Lite focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Each turn asks about one decision, offers options, and waits for your answer. Reply with a letter or describe your own choice.
 
 ## Set your own pace
 
 | Say this | Get this |
 | --- | --- |
-| `One question at a time, three overall.` | A smaller question budget. |
+| `Three questions overall.` | A smaller question budget, still asked one by one. |
 | `Focus on what could make the plan fail.` | Questions aimed at the most consequential risks. |
 | `Give me your conclusion.` | An immediate synthesis and next step. |
 | `Review this, then implement it.` | A review followed by work within the scope you authorized. |
@@ -99,7 +104,7 @@ The core is one [SKILL.md](SKILL.md): plain Markdown, with no runtime scripts, A
 The conversation follows your language. You can use the English instructions and ask in Chinese:
 
 ```text
-用 $grill-lite 帮我过一下这个方案，每轮一个问题，总共最多三个。
+用 $grill-lite 帮我过一下这个方案，总共最多三个问题。
 ```
 
 <details>
@@ -114,7 +119,7 @@ For Codex, `~/.agents/skills/grill-lite/` is a user-level location. See the [off
 <details>
 <summary><strong>How the question limit works</strong></summary>
 
-The budget covers the entire review. Independent requests for an answer count individually, including setup and confirmation questions. The agent should stop at the limit and surface any material unresolved blocker in the conclusion.
+The budget covers the entire review. Each question addresses one decision, with two or three choices and a recommendation, and the agent waits for your answer before continuing. Independent requests for an answer count individually, including setup and confirmation questions. At the limit, material unresolved blockers belong in the conclusion.
 
 This is a model instruction, not a programmatic counter. The [manual evaluation scenarios](EVALS.md) help check counting, early stopping, custom limits, and execution scope. They are an evaluation rubric, not a claim of automated behavioral test coverage.
 

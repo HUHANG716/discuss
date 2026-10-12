@@ -1,6 +1,6 @@
 ---
 name: grill-lite
-description: "Briefly pressure-test a plan, idea, or decision with a few high-impact questions and a clear stopping point. Use when the user asks for grill-lite, a light grilling, or a short plan review with fewer questions. Do not activate just because the user asks to implement a clear task or discusses installing this skill."
+description: "Briefly pressure-test a plan, idea, or decision, one short multiple-choice question at a time, with a recommended option and a clear stopping point. Use for grill-lite, a light grilling, or a short plan review with fewer questions. Do not activate just because the user asks to implement a clear task or discusses installing this skill."
 license: MIT
 ---
 
@@ -10,20 +10,39 @@ Help the user make a sound decision with the least necessary questioning. Challe
 
 ## Question budget
 
-- Ask **1–2 questions per turn**, with **at most 5 across the entire review** by default. These are ceilings, not targets: zero questions is fine when the context is sufficient.
+- Ask **one question at a time**, with **at most 5 across the entire review** by default. After asking, wait for the user's answer before choosing or asking the next question. Zero questions is fine when the context is sufficient.
 - Follow an explicit user limit instead. Count questions already asked in this review, including across context summaries; do not reset the count each turn or when the topic branches. If the count is uncertain, use the smallest remaining budget supported by the visible context.
-- Count independent requests for an answer. A sentence asking for audience, budget, and timeline counts as three questions, even under one number. Confirmation and setup questions also count.
+- Count independent requests for an answer. Audience, budget, and timeline are three questions, even in one sentence; pick only one to ask now. Confirmation and setup questions also count. Alternative answers to the same decision are options, not additional questions.
 - Never exceed the remaining budget or ask permission to extend it. Continue deeper only when the user requests it.
 - Stop asking as soon as there is enough to recommend a direction, the budget is exhausted, or the user says to stop, skip, summarize, or proceed. Do not append a final question or an invitation disguised as one.
 
 ## Run the review
 
 1. Use the existing conversation first. Look up readily available facts with permitted tools when useful; ask the user about preferences and tradeoffs that the evidence cannot settle. Skip introductions, session naming, and questions already answered.
-2. Privately identify the uncertainties most likely to change the direction, scope, or viability of the plan. Choose only the highest-impact one or two. Leave peripheral branches alone.
-3. Ask each question briefly. Give a concise recommendation with its reason; offer concrete choices when they reduce effort. Use the user's language. Keep each turn compact.
+2. Privately identify the uncertainties most likely to change the direction, scope, or viability of the plan. Choose only the highest-impact one for this turn. Leave peripheral branches alone.
+3. Use the question format below. Then stop and wait. Do not preview later questions, simulate the user's answer, or treat the recommended option as selected. Accept a letter or a free-text answer.
 4. After each answer, reassess whether another question would materially improve the decision. Point out consequential contradictions or unsupported assumptions directly. Use reasonable defaults for minor, reversible choices and label them as your assumptions. A user saying "not sure" or delegating a choice is a cue to recommend, not to start another interview branch.
 
 When the initial request already supports a useful recommendation, deliver it immediately. If a missing fact is essential but cannot be checked, identify it as an unresolved blocker; the budget does not justify inventing an answer or presenting a decision as settled.
+
+## Question format
+
+Every question uses the same compact layout:
+
+```text
+❓ {number}/{limit}: {one short question}
+
+- A. {recommended option} (Recommended)
+- B. {alternative option}
+- C. {alternative option, omit if unnecessary}
+
+💡 {one short reason for the recommendation}
+```
+
+- Always provide **2–3 concrete options** for the same decision. Put the recommendation first as **A**, clearly mark it, and bold that option when Markdown is supported. Do not replace choices with an open-ended prompt or invent facts to construct them.
+- Keep the question to one short sentence, each option to a short phrase, and the recommendation reason to one short sentence. Skip long introductions, analysis paragraphs, and additional confirmation questions.
+- Keep the emoji fixed: **❓** for the question and **💡** for the recommendation reason. Do not rotate symbols or add decorative emoji. Show the running question count using the current review's total limit.
+- Use the user's language throughout, including the recommendation marker: **（推荐）** in Chinese, **(Recommended)** in English. Free-text answers remain welcome without adding a separate question.
 
 ## Close
 
