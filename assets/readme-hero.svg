@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" role="img" aria-labelledby="title desc">
+  <title id="title">Grill Lite — Ask what matters. Then move.</title>
+  <desc id="desc">A focused plan review moves from a few sharp questions to a clear decision. One or two questions per turn, up to five overall, and an early finish when there is enough context.</desc>
+  <defs>
+    <clipPath id="panel">
+      <rect width="1600" height="660" rx="28"/>
+    </clipPath>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#203B32" opacity="0.075"/>
+    </pattern>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#244B3D"/>
+      <stop offset="1" stop-color="#183A2E"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#panel)">
+  <rect width="1600" height="660" rx="28" fill="#F6F4ED"/>
+  <rect x="820" y="28" width="752" height="604" rx="20" fill="url(#grid)"/>
+  <circle cx="1442" cy="99" r="192" fill="#E7ECD9"/>
+  <circle cx="1442" cy="99" r="145" fill="none" stroke="#203B32" stroke-opacity="0.08"/>
+  <circle cx="1442" cy="99" r="100" fill="none" stroke="#203B32" stroke-opacity="0.08"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <rect x="68" y="64" width="52" height="52" rx="14" fill="#203B32"/>
+    <g fill="#D4F46D">
+      <rect x="80" y="90" width="4" height="13" rx="2"/>
+      <rect x="87" y="83" width="4" height="20" rx="2"/>
+      <rect x="94" y="76" width="4" height="27" rx="2"/>
+      <rect x="101" y="83" width="4" height="20" rx="2"/>
+      <rect x="108" y="90" width="4" height="13" rx="2"/>
+    </g>
+    <text x="138" y="96" fill="#426051" font-size="16" font-weight="650" letter-spacing="2.3">A SMALL SKILL FOR BIG DECISIONS</text>
+    <text x="66" y="231" fill="#203B32" font-size="103" font-weight="750" letter-spacing="-5">Grill Lite</text>
+    <text x="70" y="321" fill="#203B32" font-size="46" font-weight="550" letter-spacing="-1.5">Ask what matters.</text>
+    <text x="70" y="381" fill="#203B32" font-size="46" font-weight="550" letter-spacing="-1.5">Then move.</text>
+    <text x="72" y="443" fill="#68766B" font-size="21">A few sharp questions. A clear next step.</text>
+    <line x1="72" y1="500" x2="687" y2="500" stroke="#DADFD2"/>
+    <text x="72" y="548" fill="#203B32" font-size="30" font-weight="700">1–2</text>
+    <text x="72" y="580" fill="#68766B" font-size="16">per turn</text>
+    <line x1="235" y1="525" x2="235" y2="580" stroke="#DADFD2"/>
+    <text x="270" y="548" fill="#203B32" font-size="30" font-weight="700">5 max</text>
+    <text x="270" y="580" fill="#68766B" font-size="16">per review, by default</text>
+    <line x1="497" y1="525" x2="497" y2="580" stroke="#DADFD2"/>
+    <text x="532" y="548" fill="#203B32" font-size="30" font-weight="700">Stop early</text>
+    <text x="532" y="580" fill="#68766B" font-size="16">when enough is clear</text>
+    <rect x="859" y="119" width="556" height="184" rx="22" fill="#203B32" opacity="0.06"/>
+    <rect x="851" y="109" width="556" height="184" rx="22" fill="#FFFFFF" stroke="#DFE4D9" stroke-width="1.5"/>
+    <rect x="877" y="135" width="90" height="31" rx="15.5" fill="#EEF2E7"/>
+    <text x="922" y="156" fill="#426051" font-size="14" font-weight="700" text-anchor="middle">Q1 OF 5</text>
+    <circle cx="1355" cy="150" r="5" fill="#BDD567"/>
+    <text x="879" y="209" fill="#203B32" font-size="26" font-weight="650" letter-spacing="-0.5">What would change the plan?</text>
+    <text x="879" y="252" fill="#68766B" font-size="18">One focused question. A recommendation.</text>
+    <path d="M 1132 300 L 1132 331" stroke="#7B907B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 1125 324 L 1132 332 L 1139 324" fill="none" stroke="#7B907B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="919" y="356" width="548" height="238" rx="24" fill="#203B32" opacity="0.08"/>
+    <rect x="909" y="346" width="548" height="238" rx="24" fill="url(#card)"/>
+    <rect x="937" y="373" width="95" height="31" rx="15.5" fill="#D4F46D"/>
+    <text x="984.5" y="394" fill="#203B32" font-size="14" font-weight="750" text-anchor="middle">ENOUGH.</text>
+    <text x="938" y="454" fill="#FFFFFF" font-size="33" font-weight="650" letter-spacing="-0.7">A decision you can act on.</text>
+    <line x1="939" y1="479" x2="1426" y2="479" stroke="#FFFFFF" stroke-opacity="0.14"/>
+    <g fill="none" stroke="#D4F46D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 940 506 L 944 510 L 951 502"/>
+      <path d="M 940 540 L 944 544 L 951 536"/>
+    </g>
+    <text x="965" y="512" fill="#E6EEDF" font-size="17">Clear assumptions</text>
+    <text x="965" y="546" fill="#E6EEDF" font-size="17">One concrete next step</text>
+    <g transform="translate(1287 525)">
+      <rect width="17" height="17" rx="5" fill="#D4F46D"/>
+      <rect x="25" width="17" height="17" rx="5" fill="none" stroke="#789184"/>
+      <rect x="50" width="17" height="17" rx="5" fill="none" stroke="#789184"/>
+      <rect x="75" width="17" height="17" rx="5" fill="none" stroke="#789184"/>
+      <rect x="100" width="17" height="17" rx="5" fill="none" stroke="#789184"/>
+    </g>
+  </g>
+  </g>
+</svg>

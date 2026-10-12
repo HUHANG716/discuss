@@ -1,79 +1,133 @@
-# Grill Lite
+<p align="center">
+  <img src="assets/readme-hero.svg" alt="Grill Lite — Ask what matters. Then move. One or two questions per turn, up to five overall, and an early finish when the decision is clear." width="100%">
+</p>
 
-[中文说明](README.zh-CN.md) · [Skill instructions](SKILL.md) · [MIT license](LICENSE)
+<p align="center">
+  <strong>A focused second opinion for the plan you already have.</strong><br>
+  Bring an idea. Get a few sharp questions, a recommendation, and a concrete next step.
+</p>
 
-A lightweight agent skill for pressure-testing a plan, idea, or decision. Ask a few consequential questions, then give a recommendation and a concrete next step.
+<p align="center">
+  <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="SKILL.md">Read the skill</a> ·
+  <a href="https://github.com/HUHANG716/grill-lite/releases/latest">Download</a> ·
+  <a href="LICENSE">MIT license</a>
+</p>
 
-## The rules
+---
 
-- **1–2 questions per turn; at most 5 per review** by default.
-- Stop earlier when the context is sufficient. A clear request can need zero questions.
-- Ask about choices that change direction, scope, or viability.
-- Give a recommendation with each question. Set sensible defaults for minor choices and label assumptions.
-- Count separate decisions, including questions hidden inside a sentence.
-- Stop immediately when the user asks for a conclusion or says to proceed.
-- Finish with a recommendation, the important decisions and assumptions, and one next step.
+## Get started
 
-The limit covers the whole review, not each message. Users can set a different limit or explicitly ask to go deeper. The skill does not automatically create session files or require extra approval rounds.
-
-## Install
-
-With the [Skills CLI](https://github.com/vercel-labs/skills):
+Install with the [Skills CLI](https://github.com/vercel-labs/skills):
 
 ```sh
 npx skills add HUHANG716/grill-lite --skill grill-lite
 ```
 
-Install globally for Codex:
+Then bring your plan to your agent. In Codex:
+
+```text
+Use $grill-lite to review this plan: [your plan here].
+```
+
+<details>
+<summary><strong>Codex: install globally</strong></summary>
 
 ```sh
 npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 ```
 
-For other supported agents, select your agent in the installer. The runtime instructions are plain Markdown and do not require scripts, an API key, or a particular tool.
+</details>
 
-To install manually, copy `SKILL.md` and the optional `agents/` folder into a `grill-lite` directory under your agent's skills directory. Keep `LICENSE` with redistributed copies. For Codex, `~/.agents/skills/grill-lite/` is a user-level location. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
+## See a review from start to finish
 
-## Use
+*An illustrative conversation. One useful answer can be enough.*
 
-In Codex:
+**You**
+
+> I want to rebuild my personal task tracker as a web app. Use grill-lite.
+
+**Grill Lite · Question 1 of 5**
+
+> Which problem makes the rebuild worthwhile: missed tasks, choosing what to do next, or reviewing progress?
+>
+> I'd start with choosing what to do next. It gives the first version one clear job.
+
+**You**
+
+> Choosing what to do next. Just for me, no sync. It could be much smaller.
+
+**Grill Lite · Done**
+
+> **Recommendation:** prototype a local daily-priority view before a full rebuild.
+>
+> **Your decisions:** personal use, no sync, focus on the next task.
+>
+> **My assumption:** manual task entry is enough for the first version.
+>
+> **Next step:** sketch an inbox and today's top three tasks on one screen.
+
+The review ends after one question because there is enough to recommend a direction.
+
+## Small budget. Useful pressure.
+
+| Rule | What it means for you |
+| --- | --- |
+| **1–2 questions per turn** | A small set of choices you can actually answer. |
+| **Up to 5 per review** | One budget across the whole conversation, including follow-ups. |
+| **A recommendation with each question** | Something concrete to react to, with a brief reason. |
+| **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
+| **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
+
+Grill Lite focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Separate decisions count separately, even when packed into one sentence.
+
+## Set your own pace
+
+| Say this | Get this |
+| --- | --- |
+| `One question at a time, three overall.` | A smaller question budget. |
+| `Focus on what could make the plan fail.` | Questions aimed at the most consequential risks. |
+| `Give me your conclusion.` | An immediate synthesis and next step. |
+| `Review this, then implement it.` | A review followed by work within the scope you authorized. |
+
+The default limit is a ceiling, not a quota. A sufficiently clear plan can need **zero questions**. Ask explicitly when you want to go deeper.
+
+## Fits your existing agent
+
+The core is one [SKILL.md](SKILL.md): plain Markdown, with no runtime scripts, API key, or required external service. Use it with agents that support the Agent Skills format. The Skills CLI supports Codex, Claude Code, Cursor, and other agents; select yours during installation.
+
+The conversation follows your language. You can use the English instructions and ask in Chinese:
 
 ```text
-Use $grill-lite to pressure-test my plan to migrate a small app to Kotlin Multiplatform.
+用 $grill-lite 帮我过一下这个方案，每轮一个问题，总共最多三个。
 ```
 
-Or ask naturally:
+<details>
+<summary><strong>Manual installation</strong></summary>
 
-```text
-Give this idea a light grilling. Ask only what could change the direction.
-```
+Copy `SKILL.md` and the optional `agents/` folder into a `grill-lite` directory under your agent's skills directory. Keep `LICENSE` with redistributed copies.
 
-```text
-用 grill-lite 帮我过一下这个方案，每轮一个问题，总共最多三个。
-```
+For Codex, `~/.agents/skills/grill-lite/` is a user-level location. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
-You can stop at any point: “Give me your conclusion,” “That's enough,” or “先给结论”. If you also request implementation, the agent continues within that authorization after the review; asking for a review alone does not start implementation.
+</details>
 
-## Example
+<details>
+<summary><strong>How the question limit works</strong></summary>
 
-**User:** I'm thinking of building a personal task manager. Use grill-lite.
+The budget covers the entire review. Independent requests for an answer count individually, including setup and confirmation questions. The agent should stop at the limit and surface any material unresolved blocker in the conclusion.
 
-**Agent:** Which recurring problem should the first version solve: forgetting tasks, choosing what to do next, or tracking progress? I recommend choosing what to do next, because that gives the first version a specific job.
+This is a model instruction, not a programmatic counter. The [manual evaluation scenarios](EVALS.md) help check counting, early stopping, custom limits, and execution scope. They are an evaluation rubric, not a claim of automated behavioral test coverage.
 
-**User:** Choosing what to do next. It's just for me, and I don't need sync.
+</details>
 
-**Agent:** Recommendation: start with a local daily-priority view. You chose a personal tool focused on choosing the next task, with no sync. My assumption is that manual task entry is enough for the first version. Next step: sketch one screen with a task inbox and today's top three tasks.
+## Make it sharper
 
-One useful answer can be enough. There is no requirement to use all five questions.
+Share a small example where a question changed your decision, or where the agent kept asking after the answer was already clear. [Open an issue](https://github.com/HUHANG716/grill-lite/issues) or propose a focused improvement.
 
-## Check or improve it
+Good contributions help the next user reach a sound decision with less unnecessary back-and-forth.
 
-Use the [behavioral scenarios](EVALS.md) to check question counting, early stopping, user overrides, and scope. These are a manual evaluation rubric, not a claim of automated behavioral test coverage. The question budget is an instruction to the model, not a programmatic enforcement mechanism.
+---
 
-Contributions should make decisions easier with fewer unnecessary questions. Explain the observed failure and include a small example before adding a rule.
+Inspired by [Matt Pocock's grilling skill](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md). Independently written, with a bounded question budget and an explicit early stopping rule.
 
-## Credits and license
-
-Inspired by [Matt Pocock's grilling skill](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md). Grill Lite uses independently written instructions with a bounded question budget and an explicit early stopping rule.
-
-Released under the [MIT license](LICENSE).
+[MIT licensed](LICENSE). Use it, adapt it, and share it.
