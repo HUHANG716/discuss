@@ -27,7 +27,7 @@ npx skills add HUHANG716/grill-lite --skill grill-lite
 然后把方案交给助手。在 Codex 中可以这样说：
 
 ```text
-用 $grill-lite 帮我过一下这个方案：……
+用 $grill-lite 帮我检查这个方案：……
 ```
 
 <details>
@@ -105,6 +105,10 @@ Grill Lite 聚焦会改变方向、范围或可行性的选择。关键假设仍
 核心就是一份 [SKILL.md](SKILL.md)：纯 Markdown，不需要运行脚本、配置 API 密钥或依赖外部服务。支持 Agent Skills 格式的助手即可使用。Skills CLI 支持 Codex、Claude Code、Cursor 等助手，安装时选择你使用的工具。
 
 技能规则使用英文，讨论会跟随你的语言；中文提问、中文收尾都可以。
+
+```text
+用 $grill-lite 帮我检查这个方案。一次只问一题，总共最多三题。
+```
 
 <details>
 <summary><strong>手动安装</strong></summary>
