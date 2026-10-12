@@ -4,7 +4,7 @@ Run these in a fresh conversation with `SKILL.md` available, using the same mode
 
 Count every independent request for an answer, including confirmation requests. A sentence with three separate decisions counts as three questions.
 
-On interview turns, check for one short question marked with ❓, two or three lettered choices, the recommended choice first as A with a localized recommendation marker, and one short reason marked with 💡. The agent must then wait for the user's answer. Closing turns should contain no new question.
+On interview turns, check for one short question marked with ❓, two or three lettered choices, the recommended choice first as A with a localized recommendation marker, one short reason marked with 💡, and a short invitation to reply with a letter or an idea of the user's own. The agent must then wait for the user's answer. Closing turns should contain no new question.
 
 | Scenario | User input or prior context | Expected behavior |
 | --- | --- | --- |
@@ -18,7 +18,9 @@ On interview turns, check for one short question marked with ❓, two or three l
 | Answer-dependent follow-up | The user chooses B, a different direction from the recommendation. | Use B to choose the next single question or close. Do not follow a prewritten questionnaire or silently substitute A. |
 | Recommendation is not consent | The agent has just recommended A and the user has not replied. | End the turn. Do not choose A on the user's behalf, ask another question, or start implementing. |
 | Chinese compact format | “用 grill-lite 帮我看看这个想法：做个个人任务工具。” | Use a short Chinese question marked ❓, two or three short choices, A marked （推荐）, and one short 💡 reason. No long analysis or extra emoji. |
-| Free-text answer | The user supplies a valid choice that was not listed. | Accept the choice and adapt; do not force another turn just to select a letter. |
+| Free-text entry is visible | The agent asks a question with A/B/C options. | Explicitly include a short, localized invitation to share an idea outside the options. Do not add a second question. |
+| Free-text answer | The options concern choosing the next task, avoiding missed tasks, or reviewing progress. User: “Actually, I want to turn vague tasks into a next action. Just for me, no sync.” | Use the new task-breakdown direction for the next question or conclusion. Do not substitute A, fit the answer into an existing option, or require a letter confirmation. |
+| Combined or modified choice | User: “A, but only for work tasks; later I may add part of B.” | Carry the user's scope and timing into the recommendation. Do not treat this as an unqualified A or force a single letter. |
 | Delegated choice | User: “Not sure about storage; pick what fits the small prototype.” | Recommend a reasonable default, label it as the agent's assumption, and avoid opening another storage interview branch. |
 | Missing critical fact | Five questions have been used. An essential dependency is still unverified and cannot be checked with available tools. | Stop questioning, state the unresolved blocker and a concrete verification step, and avoid claiming the plan is settled. |
 | Review scope | “Use grill-lite to review this deployment plan; do not execute it.” | End with recommendations and a next step. Do not deploy, create session files, or add an approval round. |

@@ -1,6 +1,6 @@
 ---
 name: grill-lite
-description: "Briefly pressure-test a plan, idea, or decision, one short multiple-choice question at a time, with a recommended option and a clear stopping point. Use for grill-lite, a light grilling, or a short plan review with fewer questions. Do not activate just because the user asks to implement a clear task or discusses installing this skill."
+description: "Briefly pressure-test a plan, idea, or decision, one short question at a time, with suggested options, a recommendation, room for your own ideas, and a clear stopping point. Use for grill-lite, a light grilling, or a short plan review with fewer questions. Do not activate just because the user asks to implement a clear task or discusses installing this skill."
 license: MIT
 ---
 
@@ -20,7 +20,7 @@ Help the user make a sound decision with the least necessary questioning. Challe
 
 1. Use the existing conversation first. Look up readily available facts with permitted tools when useful; ask the user about preferences and tradeoffs that the evidence cannot settle. Skip introductions, session naming, and questions already answered.
 2. Privately identify the uncertainties most likely to change the direction, scope, or viability of the plan. Choose only the highest-impact one for this turn. Leave peripheral branches alone.
-3. Use the question format below. Then stop and wait. Do not preview later questions, simulate the user's answer, or treat the recommended option as selected. Accept a letter or a free-text answer.
+3. Use the question format below. Then stop and wait. Do not preview later questions, simulate the user's answer, or treat the recommended option as selected. Accept a letter, a combination or modification of the options, or an entirely new idea. Use the user's actual answer to guide the review; do not force it into a listed choice or ask for a letter confirmation.
 4. After each answer, reassess whether another question would materially improve the decision. Point out consequential contradictions or unsupported assumptions directly. Use reasonable defaults for minor, reversible choices and label them as your assumptions. A user saying "not sure" or delegating a choice is a cue to recommend, not to start another interview branch.
 
 When the initial request already supports a useful recommendation, deliver it immediately. If a missing fact is essential but cannot be checked, identify it as an unresolved blocker; the budget does not justify inventing an answer or presenting a decision as settled.
@@ -37,12 +37,15 @@ Every question uses the same compact layout:
 - C. {alternative option, omit if unnecessary}
 
 💡 {one short reason for the recommendation}
+
+Reply with a letter, or share your own idea.
 ```
 
 - Always provide **2–3 concrete options** for the same decision. Put the recommendation first as **A**, clearly mark it, and bold that option when Markdown is supported. Do not replace choices with an open-ended prompt or invent facts to construct them.
 - Keep the question to one short sentence, each option to a short phrase, and the recommendation reason to one short sentence. Skip long introductions, analysis paragraphs, and additional confirmation questions.
 - Keep the emoji fixed: **❓** for the question and **💡** for the recommendation reason. Do not rotate symbols or add decorative emoji. Show the running question count using the current review's total limit.
-- Use the user's language throughout, including the recommendation marker: **（推荐）** in Chinese, **(Recommended)** in English. Free-text answers remain welcome without adding a separate question.
+- Show the short free-text invitation on every question: **回复字母，或直接说你的想法。** in Chinese, **Reply with a letter, or share your own idea.** in English. It is an answer instruction, not an additional question. Options are suggestions, not an exhaustive list; the recommendation is advice, not a constraint on the user's choice.
+- Use the user's language throughout, including the recommendation marker: **（推荐）** in Chinese, **(Recommended)** in English.
 
 ## Close
 
