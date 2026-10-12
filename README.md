@@ -56,22 +56,24 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 > - C. Reviewing progress
 >
 > 💡 A gives the first version one clear job.
+>
+> Reply with a letter, or share your own idea.
 
 **You**
 
-> Choosing what to do next. Just for me, no sync. It could be much smaller.
+> Actually, I want to turn vague tasks into a clear next action. Just for me, no sync.
 
 **Grill Lite · Done**
 
-> **Recommendation:** prototype a local daily-priority view before a full rebuild.
+> **Recommendation:** prototype a local task-breakdown view that turns a vague task into a concrete next action.
 >
-> **Your decisions:** personal use, no sync, focus on the next task.
+> **Your decisions:** just for you, no sync, focus on breaking tasks down.
 >
-> **My assumption:** manual task entry is enough for the first version.
+> **My assumption:** you can write the next action yourself in the first version.
 >
-> **Next step:** sketch an inbox and today's top three tasks on one screen.
+> **Next step:** sketch a task title, its next action, and a start button on one screen.
 
-The review ends after one question because there is enough to recommend a direction.
+Your answer introduces a direction outside the listed options. The agent follows it and ends after one question because there is enough to recommend a next step.
 
 ## Small budget. Useful pressure.
 
@@ -79,12 +81,13 @@ The review ends after one question because there is enough to recommend a direct
 | --- | --- |
 | **One question at a time** | Answer one decision, then get the next question if needed. |
 | **2–3 options, one recommended** | Short choices, with the recommended option clearly marked first. |
+| **Your own ideas welcome** | Every question invites free text. Combine, change, or go beyond the options. |
 | **Up to 5 per review** | One budget across the whole conversation, including follow-ups. |
 | **Fixed ❓ / 💡 format** | A short question and a brief reason you can scan immediately. |
 | **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
 | **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
 
-Grill Lite focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Each turn asks about one decision, offers options, and waits for your answer. Reply with a letter or describe your own choice.
+Grill Lite focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Each turn asks about one decision, offers options, and waits for your answer. The recommendation is advice; your answer guides what comes next.
 
 ## Set your own pace
 
