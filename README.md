@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme-hero.svg" alt="Grill Lite — Ask what matters. Then move. One short question at a time, with options and a recommendation. Up to five overall, with an early finish when the decision is clear." width="100%">
+  <img src="assets/readme-hero.svg" alt="Discuss — Ask what matters. Then move. One short question at a time, with options and a recommendation. Up to five overall, with an early finish when the decision is clear." width="100%">
 </p>
 
 <p align="center">
@@ -10,7 +10,7 @@
 <p align="center">
   <a href="README.zh-CN.md">简体中文</a> ·
   <a href="SKILL.md">Read the skill</a> ·
-  <a href="https://github.com/HUHANG716/grill-lite/releases/latest">Download</a> ·
+  <a href="https://github.com/HUHANG716/discuss/releases/latest">Download</a> ·
   <a href="LICENSE">MIT license</a>
 </p>
 
@@ -21,20 +21,24 @@
 Install with the [Skills CLI](https://github.com/vercel-labs/skills):
 
 ```sh
-npx skills add HUHANG716/grill-lite --skill grill-lite
+npx skills add HUHANG716/discuss --skill discuss
 ```
 
 Then bring your plan to your agent. In Codex:
 
 ```text
-Use $grill-lite to review this plan: [your plan here].
+Use $discuss to review this plan: [your plan here].
 ```
+
+You can also say `discuss this plan`, `let's talk through this idea`, or `grill this proposal`. The same short discussion applies.
+
+Previously published as `grill-lite`. The skill name and installation folder are now `discuss`.
 
 <details>
 <summary><strong>Codex: install globally</strong></summary>
 
 ```sh
-npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
+npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 ```
 
 </details>
@@ -45,9 +49,9 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 
 **You**
 
-> I want to rebuild my personal task tracker as a web app. Use grill-lite.
+> I want to rebuild my personal task tracker as a web app. Use discuss.
 
-**Grill Lite**
+**Discuss**
 
 > 🍢 **1/5: What should the first version solve?**
 >
@@ -63,7 +67,7 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 
 > Actually, I want to turn vague tasks into a clear next action. Just for me, no sync.
 
-**Grill Lite · Done**
+**Discuss · Done**
 
 > **Recommendation:** prototype a local task-breakdown view that turns a vague task into a concrete next action.
 >
@@ -87,7 +91,7 @@ Your answer introduces a direction outside the listed options. The agent follows
 | **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
 | **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
 
-Grill Lite focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Each turn asks about one decision, offers options, and waits for your answer. The recommendation is advice; your answer guides what comes next.
+Discuss focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Each turn asks about one decision, offers options, and waits for your answer. The recommendation is advice; your answer guides what comes next.
 
 ## Set your own pace
 
@@ -107,15 +111,15 @@ The core is one [SKILL.md](SKILL.md): plain Markdown, with no runtime scripts, A
 Questions and recommendations follow your language. To review a plan with the default limit:
 
 ```text
-Use $grill-lite to review this plan. Ask one question at a time, up to five across the review.
+Use $discuss to review this plan. Ask one question at a time, up to five across the review.
 ```
 
 <details>
 <summary><strong>Manual installation</strong></summary>
 
-Copy `SKILL.md` and the optional `agents/` folder into a `grill-lite` directory under your agent's skills directory. Keep `LICENSE` with redistributed copies.
+Copy `SKILL.md` and the optional `agents/` folder into a `discuss` directory under your agent's skills directory. Keep `LICENSE` with redistributed copies.
 
-For Codex, `~/.agents/skills/grill-lite/` is a user-level location. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
+For Codex, `~/.agents/skills/discuss/` is a user-level location. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
 </details>
 
@@ -130,7 +134,7 @@ This is a model instruction, not a programmatic counter. The [manual evaluation 
 
 ## Make it sharper
 
-Share a small example where a question changed your decision, or where the agent kept asking after the answer was already clear. [Open an issue](https://github.com/HUHANG716/grill-lite/issues) or propose a focused improvement.
+Share a small example where a question changed your decision, or where the agent kept asking after the answer was already clear. [Open an issue](https://github.com/HUHANG716/discuss/issues) or propose a focused improvement.
 
 Good contributions help the next user reach a sound decision with less unnecessary back-and-forth.
 

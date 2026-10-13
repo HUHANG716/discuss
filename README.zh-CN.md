@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme-hero.svg" alt="Grill Lite：问到关键处，就往前走。一次只问一个简短问题，提供选项和推荐项；默认全程最多五题，信息足够就提前收尾。" width="100%">
+  <img src="assets/readme-hero.svg" alt="Discuss：问到关键处，就往前走。一次只问一个简短问题，提供选项和推荐项；默认全程最多五题，信息足够就提前收尾。" width="100%">
 </p>
 
 <p align="center">
@@ -10,7 +10,7 @@
 <p align="center">
   <a href="README.md">English</a> ·
   <a href="SKILL.md">技能规则</a> ·
-  <a href="https://github.com/HUHANG716/grill-lite/releases/latest">下载安装包</a> ·
+  <a href="https://github.com/HUHANG716/discuss/releases/latest">下载安装包</a> ·
   <a href="LICENSE">MIT 许可证</a>
 </p>
 
@@ -21,20 +21,24 @@
 通过 [Skills CLI](https://github.com/vercel-labs/skills) 安装：
 
 ```sh
-npx skills add HUHANG716/grill-lite --skill grill-lite
+npx skills add HUHANG716/discuss --skill discuss
 ```
 
 然后把方案交给助手。在 Codex 中可以这样说：
 
 ```text
-用 $grill-lite 帮我检查这个方案：……
+用 $discuss 帮我检查这个方案：……
 ```
+
+也可以直接说“讨论一下这个方案”“discuss 一下这个想法”或“grill 一下这个方案”，相近的讨论表达也适用。
+
+原名 `grill-lite`，现在的技能名称和安装文件夹都是 `discuss`。
 
 <details>
 <summary><strong>Codex：全局安装</strong></summary>
 
 ```sh
-npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
+npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 ```
 
 </details>
@@ -45,9 +49,9 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 
 **你**
 
-> 我想把个人任务管理工具重做成一个 Web 应用，用 grill-lite 帮我看看。
+> 我想把个人任务管理工具重做成一个 Web 应用，用 discuss 帮我看看。
 
-**Grill Lite**
+**Discuss**
 
 > 🍢 **1/5：第一版优先解决什么？**
 >
@@ -63,7 +67,7 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 
 > 其实我想解决的是任务太模糊，不知道怎么开始。只给我自己用，不需要同步。
 
-**Grill Lite · 收尾**
+**Discuss · 收尾**
 
 > **建议：** 先做一个本地的任务拆解原型，把模糊任务变成可执行的下一步。
 >
@@ -87,7 +91,7 @@ npx skills add HUHANG716/grill-lite --skill grill-lite --agent codex --global
 | **小选择采用默认值** | 可逆的细节交给助手，并清楚标明假设。 |
 | **信息足够就收尾** | 能给结论就停，剩余题数不用凑满。 |
 
-Grill Lite 聚焦会改变方向、范围或可行性的选择。关键假设仍然会被质疑，重要矛盾也会被指出。每轮只问一个决策、给出选项，然后等待你回答。推荐项供你参考，后续讨论跟着你的实际回答调整。
+Discuss 聚焦会改变方向、范围或可行性的选择。关键假设仍然会被质疑，重要矛盾也会被指出。每轮只问一个决策、给出选项，然后等待你回答。推荐项供你参考，后续讨论跟着你的实际回答调整。
 
 ## 节奏由你定
 
@@ -107,15 +111,15 @@ Grill Lite 聚焦会改变方向、范围或可行性的选择。关键假设仍
 技能规则使用英文，讨论会跟随你的语言；中文提问、中文收尾都可以。
 
 ```text
-用 $grill-lite 帮我检查这个方案。一次只问一题，全程最多五题。
+用 $discuss 帮我检查这个方案。一次只问一题，全程最多五题。
 ```
 
 <details>
 <summary><strong>手动安装</strong></summary>
 
-将 `SKILL.md` 和可选的 `agents/` 文件夹放到助手技能目录下的 `grill-lite` 文件夹。分发副本时保留 `LICENSE`。
+将 `SKILL.md` 和可选的 `agents/` 文件夹放到助手技能目录下的 `discuss` 文件夹。分发副本时保留 `LICENSE`。
 
-Codex 的用户级路径之一为 `~/.agents/skills/grill-lite/`，详见[官方技能文档](https://learn.chatgpt.com/docs/build-skills)。
+Codex 的用户级路径之一为 `~/.agents/skills/discuss/`，详见[官方技能文档](https://learn.chatgpt.com/docs/build-skills)。
 
 </details>
 
@@ -130,7 +134,7 @@ Codex 的用户级路径之一为 `~/.agents/skills/grill-lite/`，详见[官方
 
 ## 一起把问题问得更准
 
-欢迎提供一个小例子：哪次追问改变了你的决定，或者哪次已经可以收尾，助手却还在问。[提交 Issue](https://github.com/HUHANG716/grill-lite/issues)，也欢迎提出具体改进。
+欢迎提供一个小例子：哪次追问改变了你的决定，或者哪次已经可以收尾，助手却还在问。[提交 Issue](https://github.com/HUHANG716/discuss/issues)，也欢迎提出具体改进。
 
 好的改进，应该让下一位使用者少一些不必要的来回，更快做出有依据的决定。
 

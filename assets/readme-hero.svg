@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" role="img" aria-labelledby="title desc">
-  <title id="title">Grill Lite — Ask what matters. Then move.</title>
+  <title id="title">Discuss — Ask what matters. Then move.</title>
   <desc id="desc">A focused plan review moves from one short question at a time, with suggested options, a recommendation, and room for your own idea, to a clear decision. Up to five questions overall, and an early finish when there is enough context.</desc>
   <defs>
     <clipPath id="panel">
@@ -29,7 +29,7 @@
       <rect x="108" y="90" width="4" height="13" rx="2"/>
     </g>
     <text x="138" y="96" fill="#426051" font-size="16" font-weight="650" letter-spacing="2.3">A SMALL SKILL FOR BIG DECISIONS</text>
-    <text x="66" y="231" fill="#203B32" font-size="103" font-weight="750" letter-spacing="-5">Grill Lite</text>
+    <text x="66" y="231" fill="#203B32" font-size="103" font-weight="750" letter-spacing="-5">Discuss</text>
     <text x="70" y="321" fill="#203B32" font-size="46" font-weight="550" letter-spacing="-1.5">Ask what matters.</text>
     <text x="70" y="381" fill="#203B32" font-size="46" font-weight="550" letter-spacing="-1.5">Then move.</text>
     <text x="72" y="443" fill="#68766B" font-size="21">A few sharp questions. A clear next step.</text>
