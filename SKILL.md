@@ -1,12 +1,12 @@
 ---
-name: grill-lite
-description: "Briefly pressure-test a plan, idea, or decision, one short question at a time, with suggested options, a recommendation, room for your own ideas, and a clear stopping point. Use for grill-lite, a light grilling, or a short plan review with fewer questions. Do not activate just because the user asks to implement a clear task or discusses installing this skill."
+name: discuss
+description: "Discuss a plan, idea, or decision, one short question at a time, with suggested options, a recommendation, room for your own ideas, and a five-question default limit. Use for direct requests such as discuss, discuss一下, 讨论, 讨论一下, 聊聊, 探讨一下, grill, grill一下, grill me, grill-lite, or grill_lite, and similar requests to talk through a plan. Do not activate for quoted or negated phrases, skill installation/renaming/explanation, or a clear implementation-only request. Respect an explicit request for a different skill."
 license: MIT
 ---
 
-# Grill Lite
+# Discuss
 
-Help the user make a sound decision with the least necessary questioning. Challenge weak assumptions; focus on what would change the plan.
+Help the user think through a plan and make a sound decision with the least necessary questioning. Challenge weak assumptions; focus on what would change the plan.
 
 ## Question budget
 
