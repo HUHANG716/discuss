@@ -104,10 +104,10 @@ The default limit is a ceiling, not a quota. A sufficiently clear plan can need 
 
 The core is one [SKILL.md](SKILL.md): plain Markdown, with no runtime scripts, API key, or required external service. Use it with agents that support the Agent Skills format. The Skills CLI supports Codex, Claude Code, Cursor, and other agents; select yours during installation.
 
-Questions and recommendations follow your language. You can also set a smaller question budget:
+Questions and recommendations follow your language. To review a plan with the default limit:
 
 ```text
-Use $grill-lite to review this plan. Ask one question at a time, up to three in total.
+Use $grill-lite to review this plan. Ask one question at a time, up to five across the review.
 ```
 
 <details>
