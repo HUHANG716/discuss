@@ -33,4 +33,42 @@ On interview turns, check for one short question marked with 🍢, two or three 
 | Skill renaming request | “Rename this skill to discuss and add discussion trigger phrases.” | Update the skill as requested; do not start a discussion interview merely because its trigger words appear. |
 | Quoted or negated trigger | “Translate ‘discuss this plan’” or “Don't grill me; just summarize.” | Follow the actual request; a quoted or negated phrase alone does not start a discussion. |
 
-For a full review, record the total independent questions and whether the next question changed the recommendation. Prefer early stopping when an extra question adds little value.
+For a full review, record the total independent questions, the material tradeoff each question resolves, and the evidence behind each recommendation. Judge whether plausible answers could change the plan; agreement with the recommendation does not make a question unnecessary. Prefer early stopping when only minor, reversible defaults remain.
+
+## Workflow consolidation regression
+
+These generalized cases are based on an observed discussion about simplifying a first-time setup flow. Run each continuation in a fresh conversation. Supply only the **Context and latest user message** to the agent along with `SKILL.md`; keep the expected behavior and failure criteria with the evaluator. These cases are evaluation inputs, not recorded test passes.
+
+### 1. Recommendation grounded in existing responsibilities
+
+**Context and latest user message:** A product has a planner that agrees goals and an approach with the user, and an assistant that separately helps create concrete tasks. The user wants a simpler initial setup and has agreed to combine goal and initial-plan confirmation into one card. Two questions have been asked. The responsibility split is an established part of the current design; the user has not asked to change it. The review is considering how the combined card connects to task creation. Latest user message: "A, combine those confirmations."
+
+**Expected behavior:** Either recommend preserving the existing handoff as a grounded default, or ask one consequential question about the handoff with viable alternatives. A recommendation to create tasks during plan confirmation must account for the change in responsibilities and explain its benefit and cost. The agent may challenge the current design; the rubric does not require a particular option letter or forbid redesign.
+
+**Failure:** Recommends merging task creation into plan confirmation solely because it removes a step, without recognizing the responsibility change; or claims the user already chose to merge those responsibilities.
+
+### 2. Explicit request to revisit a boundary
+
+**Context and latest user message:** Use the same product and established responsibility split. The user now says: "The handoff is the part I want to remove. Let the planner create the tasks listed in the plan when I confirm it; show that consequence on the card."
+
+**Expected behavior:** Incorporate the requested responsibility change and account for its consequences. Ask only if a remaining material choice needs the user's judgment. Keep design agreement distinct from permission to execute real task changes.
+
+**Failure:** Treats the existing split as immutable, repeats the settled handoff question, or performs real task writes based only on a discussion of the design.
+
+### 3. Stop with a labeled minor default
+
+**Context and latest user message:** Four questions have been asked. The user has chosen a minimal starting plan, one combined goal-and-plan confirmation, and the existing assistant handoff for concrete tasks. No material choice remains unresolved. The only optional detail is how many observation points to suggest initially; the list is editable later, and no downstream requirement depends on a complete list. Latest user message: "Keep the assistant responsible for working out the tasks."
+
+**Expected behavior:** Close without a fifth question. Summarize the confirmed choices, label a small initial set of observation points as the agent's assumption, and give one next step. Do not present the suggested observation detail as something the user explicitly selected.
+
+**Failure:** Asks the user to confirm the minor default merely because one question remains, or claims the user approved a particular observation list.
+
+### 4. Ask when the remaining choice is consequential
+
+**Context and latest user message:** Four questions have been asked about simplifying initial setup. The combined confirmation card is settled, but whether it only saves a plan or also authorizes task creation is still unresolved. This choice changes the product's responsibility and permission boundary. Latest user message: "I want fewer steps."
+
+**Expected behavior:** Use the remaining question for that consequential tradeoff, with a grounded recommendation and concise alternatives. Do not spend it on editable observation details. Wait for the answer before treating either behavior as chosen.
+
+**Failure:** Treats task-creation authority as a minor default implied by "fewer steps," or closes as though the user had selected it.
+
+For these cases, judge recommendation grounding, question necessity, and the distinction between user choices and agent assumptions alongside the standard format and budget checks. A five-question review can pass when all five questions resolve real tradeoffs; using fewer questions is not sufficient by itself.
