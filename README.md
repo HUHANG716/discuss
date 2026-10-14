@@ -91,7 +91,7 @@ Your answer introduces a direction outside the listed options. The agent follows
 | **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
 | **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
 
-Discuss focuses on choices that change direction, scope, or viability. It still challenges weak assumptions and calls out consequential contradictions. Each turn asks about one decision, offers options, and waits for your answer. The recommendation is advice; your answer guides what comes next.
+Discuss focuses on choices that change direction, scope, or viability. Recommendations use the known constraints and your confirmed decisions; a recommendation to change existing responsibilities or scope includes its benefit and cost. Minor, reversible details can become labeled assumptions instead of another question. Each question offers options and waits for your answer. The recommendation is advice; your answer guides what comes next.
 
 ## Set your own pace
 
