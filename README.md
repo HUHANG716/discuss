@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme-hero.svg" alt="Discuss — Ask what matters. Then move. One short question at a time, with options and a recommendation. Up to five overall, with an early finish when the decision is clear." width="100%">
+  <img src="assets/readme-hero.svg" alt="Discuss — Ask what matters. Then move. One short question at a time, with options and a recommendation. Up to five discussion questions, then a conclusion and a choice to start when the next action is ready." width="100%">
 </p>
 
 <p align="center">
@@ -67,7 +67,7 @@ npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 
 > Actually, I want to turn vague tasks into a clear next action. Just for me, no sync.
 
-**Discuss · Done**
+**Discuss · Conclusion**
 
 > **Recommendation:** prototype a local task-breakdown view that turns a vague task into a concrete next action.
 >
@@ -76,8 +76,18 @@ npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 > **My assumption:** you can write the next action yourself in the first version.
 >
 > **Next step:** sketch a task title, its next action, and a start button on one screen.
+>
+> 🍢 **Start confirmation: Shall I draft that one-screen wireframe?**
+>
+> - **A. Draft the wireframe (Recommended)**
+> - B. Adjust the plan (describe the changes)
+> - C. Stop here
+>
+> 🔥 A wireframe makes the agreed flow concrete with little effort.
+>
+> Reply with a letter, or share your own idea.
 
-Your answer introduces a direction outside the listed options. The agent follows it and ends after one question because there is enough to recommend a next step.
+Your answer introduces a direction outside the listed options. The agent follows it and concludes after one discussion question. It then waits for your execution choice before drafting the wireframe.
 
 ## Small budget. Useful pressure.
 
@@ -86,10 +96,11 @@ Your answer introduces a direction outside the listed options. The agent follows
 | **One question at a time** | Answer one decision, then get the next question if needed. |
 | **2–3 options, one recommended** | Short choices, with the recommended option clearly marked first. |
 | **Your own ideas welcome** | Every question invites free text. Combine, change, or go beyond the options. |
-| **Up to 5 per review** | One budget across the whole conversation, including follow-ups. |
+| **Up to 5 discussion questions** | One budget across the review, including follow-ups. |
 | **Fixed 🍢 / 🔥 format** | A short question and a brief reason you can scan immediately. |
 | **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
 | **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
+| **A clear start choice** | When the next action is ready, choose Start, Adjust, or Stop. Prior execution approval lets the agent continue directly. |
 
 Discuss focuses on choices that change direction, scope, or viability. Recommendations use the known constraints and your confirmed decisions; a recommendation to change existing responsibilities or scope includes its benefit and cost. Minor, reversible details can become labeled assumptions instead of another question. Each question offers options and waits for your answer. The recommendation is advice; your answer guides what comes next.
 
@@ -97,12 +108,12 @@ Discuss focuses on choices that change direction, scope, or viability. Recommend
 
 | Say this | Get this |
 | --- | --- |
-| `Three questions overall.` | A smaller question budget, still asked one by one. |
+| `Three discussion questions overall.` | A smaller discussion budget, still asked one by one. |
 | `Focus on what could make the plan fail.` | Questions aimed at the most consequential risks. |
 | `Give me your conclusion.` | An immediate synthesis and next step. |
 | `Review this, then implement it.` | A review followed by work within the scope you authorized. |
 
-The default limit is a ceiling, not a quota. A sufficiently clear plan can need **zero questions**. Ask explicitly when you want to go deeper.
+The default limit is a ceiling, not a quota. A sufficiently clear plan can need **zero discussion questions**. Ask explicitly when you want to go deeper.
 
 ## Fits your existing agent
 
@@ -111,7 +122,7 @@ The core is one [SKILL.md](SKILL.md): plain Markdown, with no runtime scripts, A
 Questions and recommendations follow your language. To review a plan with the default limit:
 
 ```text
-Use $discuss to review this plan. Ask one question at a time, up to five across the review.
+Use $discuss to review this plan. Ask one discussion question at a time, up to five across the review.
 ```
 
 <details>
@@ -126,7 +137,9 @@ For Codex, `~/.agents/skills/discuss/` is a user-level location. See the [offici
 <details>
 <summary><strong>How the question limit works</strong></summary>
 
-The budget covers the entire review. Each question addresses one decision, with two or three choices and a recommendation, and the agent waits for your answer before continuing. Independent requests for an answer count individually, including setup and confirmation questions. At the limit, material unresolved blockers belong in the conclusion.
+The budget covers discussion questions across the entire review. Each addresses one decision, with two or three choices and a recommendation, and the agent waits for your answer. Setup questions and confirmation of plan details count too. A single closing execution choice is separate from the default discussion budget; it cannot reopen planning. An explicit cap on all questions or turns includes that choice.
+
+The agent summarizes the concrete next action before asking whether to start. It proceeds directly when execution is already authorized. Advice-only requests, a request to stop, unresolved blockers, and actions the agent cannot perform end with the conclusion.
 
 This is a model instruction, not a programmatic counter. The [manual evaluation scenarios](EVALS.md) help check counting, early stopping, custom limits, and execution scope. They are an evaluation rubric, not a claim of automated behavioral test coverage.
 

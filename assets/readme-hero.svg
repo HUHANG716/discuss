@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" role="img" aria-labelledby="title desc">
   <title id="title">Discuss — Ask what matters. Then move.</title>
-  <desc id="desc">A focused plan review moves from one short question at a time, with suggested options, a recommendation, and room for your own idea, to a clear decision. Up to five questions overall, and an early finish when there is enough context.</desc>
+  <desc id="desc">A focused plan review moves from one short question at a time, with suggested options, a recommendation, and room for your own idea, to a clear decision. Up to five discussion questions, then a start choice when the next action is ready.</desc>
   <defs>
     <clipPath id="panel">
       <rect width="1600" height="660" rx="28"/>
@@ -38,7 +38,7 @@
     <text x="72" y="580" fill="#68766B" font-size="16">at a time</text>
     <line x1="235" y1="525" x2="235" y2="580" stroke="#DADFD2"/>
     <text x="270" y="548" fill="#203B32" font-size="30" font-weight="700">5 max</text>
-    <text x="270" y="580" fill="#68766B" font-size="16">per review, by default</text>
+    <text x="270" y="580" fill="#68766B" font-size="16">discussion questions</text>
     <line x1="497" y1="525" x2="497" y2="580" stroke="#DADFD2"/>
     <text x="532" y="548" fill="#203B32" font-size="30" font-weight="700">Stop early</text>
     <text x="532" y="580" fill="#68766B" font-size="16">when enough is clear</text>
