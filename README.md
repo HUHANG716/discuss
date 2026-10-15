@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/readme-hero.svg" alt="Discuss — Ask what matters. Then move. One short question at a time, with options and a recommendation. Up to five discussion questions, then a conclusion and a choice to start when the next action is ready." width="100%">
+  <img src="assets/readme-hero.svg" alt="Discuss — Ask what matters. Then move. One short question at a time, with options and a recommendation. Up to five questions per round; summarize early, then choose to act, explore a useful direction, or stop." width="100%">
 </p>
 
 <p align="center">
@@ -53,7 +53,7 @@ npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 
 **Discuss**
 
-> 🍢 **1/5: What should the first version solve?**
+> 🍢 **Question 1: What should the first version solve?**
 >
 > - **A. Choosing the next task (Recommended)**
 > - B. Missing tasks
@@ -69,6 +69,8 @@ npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 
 **Discuss · Conclusion**
 
+> That's enough to sketch the first version.
+>
 > **Recommendation:** prototype a local task-breakdown view that turns a vague task into a concrete next action.
 >
 > **Your decisions:** just for you, no sync, focus on breaking tasks down.
@@ -77,7 +79,7 @@ npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 >
 > **Next step:** sketch a task title, its next action, and a start button on one screen.
 >
-> 🍢 **Start confirmation: Shall I draft that one-screen wireframe?**
+> 🍢 **Next step: Shall I draft that one-screen wireframe?**
 >
 > - **A. Draft the wireframe (Recommended)**
 > - B. Adjust the plan (describe the changes)
@@ -89,6 +91,28 @@ npx skills add HUHANG716/discuss --skill discuss --agent codex --global
 
 Your answer introduces a direction outside the listed options. The agent follows it and concludes after one discussion question. It then waits for your execution choice before drafting the wireframe.
 
+## Go deeper where it helps
+
+Each round ends with a synthesis. If an unresolved issue or a valuable improvement deserves attention, Discuss names a concrete direction and explains what exploring it would achieve. You choose it alongside starting or stopping.
+
+For example, an agreed team-board prototype can be sketched now, while task handoffs could be explored before expanding it:
+
+> **Worth exploring:** task handoffs — clarify who takes responsibility when work changes hands.
+>
+> 🍢 **Next step: What should we do next?**
+>
+> - **A. Sketch the agreed prototype (Recommended)**
+> - B. Explore task handoffs
+> - C. Stop here
+>
+> 🔥 A sketch lets you test the agreed flow before adding team rules.
+>
+> Reply with a letter, or share your own idea.
+
+Choose B to begin a focused round of **up to five questions**, carrying forward earlier decisions. The round starts at **Question 1** and can finish as soon as enough is clear. It ends with the same synthesis and next-step choice whenever useful. There is no fixed number of rounds; each continuation is your choice.
+
+If a blocker must be resolved first, Discuss recommends exploring that issue and leaves out starting the blocked action. If no worthwhile direction remains, it offers the usual Start/Adjust/Stop choice when work is ready, or simply concludes when no choice is needed.
+
 ## Small budget. Useful pressure.
 
 | Rule | What it means for you |
@@ -96,11 +120,11 @@ Your answer introduces a direction outside the listed options. The agent follows
 | **One question at a time** | Answer one decision, then get the next question if needed. |
 | **2–3 options, one recommended** | Short choices, with the recommended option clearly marked first. |
 | **Your own ideas welcome** | Every question invites free text. Combine, change, or go beyond the options. |
-| **Up to 5 discussion questions** | One budget across the review, including follow-ups. |
-| **Fixed 🍢 / 🔥 format** | A short question and a brief reason you can scan immediately. |
+| **Up to 5 questions per round** | Often fewer. The agent summarizes before you choose another round. |
+| **Fixed 🍢 / 🔥 format** | A short question and reason; only the current question number is shown. |
 | **Defaults for minor choices** | The agent handles reversible details and labels its assumptions. |
 | **An early finish** | Enough context means a conclusion, even with questions left in the budget. |
-| **A clear start choice** | When the next action is ready, choose Start, Adjust, or Stop. Prior execution approval lets the agent continue directly. |
+| **A useful next-step choice** | Start, explore a specific direction, or stop. Prior execution approval lets the agent continue directly. |
 
 Discuss focuses on choices that change direction, scope, or viability. Recommendations use the known constraints and your confirmed decisions; a recommendation to change existing responsibilities or scope includes its benefit and cost. Minor, reversible details can become labeled assumptions instead of another question. Each question offers options and waits for your answer. The recommendation is advice; your answer guides what comes next.
 
@@ -108,12 +132,13 @@ Discuss focuses on choices that change direction, scope, or viability. Recommend
 
 | Say this | Get this |
 | --- | --- |
-| `Three discussion questions overall.` | A smaller discussion budget, still asked one by one. |
+| `Three discussion questions overall.` | A total discussion cap that persists across rounds. |
+| `Go deeper into failure recovery.` | A focused new round that builds on earlier decisions. |
 | `Focus on what could make the plan fail.` | Questions aimed at the most consequential risks. |
 | `Give me your conclusion.` | An immediate synthesis and next step. |
 | `Review this, then implement it.` | A review followed by work within the scope you authorized. |
 
-The default limit is a ceiling, not a quota. A sufficiently clear plan can need **zero discussion questions**. Ask explicitly when you want to go deeper.
+The default limit is a ceiling, not a quota. A sufficiently clear plan can need **zero discussion questions**. You see **Question 3**, not a promised total; finishing there is normal. A deeper round starts only when you choose or request it.
 
 ## Fits your existing agent
 
@@ -122,7 +147,7 @@ The core is one [SKILL.md](SKILL.md): plain Markdown, with no runtime scripts, A
 Questions and recommendations follow your language. To review a plan with the default limit:
 
 ```text
-Use $discuss to review this plan. Ask one discussion question at a time, up to five across the review.
+Use $discuss to review this plan. Ask one question at a time, up to five per round, and let me choose whether to go deeper.
 ```
 
 <details>
@@ -137,11 +162,13 @@ For Codex, `~/.agents/skills/discuss/` is a user-level location. See the [offici
 <details>
 <summary><strong>How the question limit works</strong></summary>
 
-The budget covers discussion questions across the entire review. Each addresses one decision, with two or three choices and a recommendation, and the agent waits for your answer. Setup questions and confirmation of plan details count too. A single closing execution choice is separate from the default discussion budget; it cannot reopen planning. An explicit cap on all questions or turns includes that choice.
+The default budget is up to five discussion questions per round. Each addresses one decision, with two or three choices and a recommendation, and the agent waits for your answer. Setup questions and confirmation of plan details count too. The agent tracks the cap internally and shows only the current question number. It explains an early finish briefly and summarizes instead of filling unused slots.
 
-The agent summarizes the concrete next action before asking whether to start. It proceeds directly when execution is already authorized. Advice-only requests, a request to stop, unresolved blockers, and actions the agent cannot perform end with the conclusion.
+One closing next-step choice is separate from the default discussion budget; it cannot contain extra planning questions. A selected deeper direction opens a new round with a fresh question count and the earlier decisions intact. Explicit limits across the whole review still apply across rounds, and an explicit cap on all questions or turns includes closing choices. Reaching a cap never starts another round automatically.
 
-This is a model instruction, not a programmatic counter. The [manual evaluation scenarios](EVALS.md) help check counting, early stopping, custom limits, and execution scope. They are an evaluation rubric, not a claim of automated behavioral test coverage.
+The agent suggests one or two worthwhile directions with a brief reason for each. The primary direction appears directly in the next-step choice; you can name the second or your own idea in free text. Prior execution authorization lets the agent continue directly when ready. Advice-only requests can still explore useful directions, but do not offer Start. A stop or summary request ends the discussion without another choice. An unavailable fact remains a stated blocker, not a reason to keep asking.
+
+This is a model instruction, not a programmatic counter. The [manual evaluation scenarios](EVALS.md) help check rounds, numbering, early stopping, custom limits, and execution scope. They are an evaluation rubric, not a claim of automated behavioral test coverage.
 
 </details>
 
